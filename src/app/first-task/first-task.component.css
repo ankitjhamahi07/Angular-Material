@@ -1,0 +1,41 @@
+.mat-slider-horizontal {
+    width: 350px;
+  }
+  
+  .mat-slider-vertical {
+    height: 350px;
+  }
+
+  .example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }
+  ::ng-deep .warning{
+    background: rgb(17, 116, 182);
+    
+ }
+
+
+ 
+
+ td{
+   display:block;
+   width:auto;
+   
+ 
+ }
+ 
+ @media only screen and (min-width: 70em) {
+   td{
+     display:table-cell;
+    
+     margin-bottom:0px;
+   }
+ }
+ 
+ 
+ p{font-family:'Varela Round';font-weight:bold;text-align:center;}

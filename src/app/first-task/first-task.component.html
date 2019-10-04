@@ -1,0 +1,118 @@
+<!-- Main Toolbar of an App -->
+<mat-toolbar color="accent">
+  <span>Angular Tasks </span>
+  <span class="demo-toolbar"></span>
+  <button mat-button href="www.nineleaps.com">By Ankit Kumar Jha</button>
+
+</mat-toolbar>
+
+<div class="example-container">
+  <mat-card>
+    <!-- Title of an Card -->
+    <mat-card-title>
+      Angular Material Form
+    </mat-card-title>
+
+    <mat-card-content>
+      <form [formGroup]="profile" (submit)="submitData(form)">
+        <div style="overflow-x:auto;">
+          <table>
+            <tr>
+              <td>
+                <mat-form-field class="demo-full-width">
+                  <input matInput placeholder="First Name" formControlName="firstName">
+                </mat-form-field>
+              </td>
+              <td>
+                <mat-form-field class="demo-full-width">
+                  <input matInput placeholder="Last Name" formControlName="lastName">
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mat-form-field class="demo-full-width">
+                  <input type="text" placeholder="Assignee" aria-label="Assignee" matInput [formControl]="myControl"
+                    [matAutocomplete]="auto">
+                  <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                    <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                      {{option.name}}
+                    </mat-option>
+                  </mat-autocomplete>
+                </mat-form-field>
+              </td>
+
+
+              <td>
+                <mat-form-field class="demo-full-width">
+                  <input matInput [matDatepicker]="picker" placeholder="Date of birth">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker touchUi="true" #picker></mat-datepicker>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span>Gender</span><br><br>
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="Male">Male</mat-radio-button> &nbsp;
+                  <mat-radio-button value="Female"> Female</mat-radio-button>
+                </mat-radio-group>
+              </td>
+              <td><br>
+                <mat-form-field>
+                  <mat-select placeholder="Select Profile" [(value)]="selected">
+                    <mat-option>-- Select Any --</mat-option>
+                    <mat-option value="1">SDE 1</mat-option>
+                    <mat-option value="2">SDE 2</mat-option>
+                    <mat-option value="3">SDE 3</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <mat-form-field class="demo-full-width">
+                  <mat-label>KMS Run</mat-label>
+                  <mat-slider formControlName="slider" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min"
+                    [step]="step" [thumbLabel]="thumbLabel" [tickInterval]="tickInterval" [(ngModel)]="value"
+                    [vertical]="vertical">
+                  </mat-slider>
+                  <textarea matInput hidden></textarea>
+                </mat-form-field>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2" class="content-center">
+                <button type="submit" mat-raised-button color="accent" [disabled]="!profile.valid">Submit</button>
+                &nbsp;
+                <button mat-raised-button color="accent">Clear</button>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </form>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+<mat-list *ngIf="showData">
+  <mat-list-item>
+
+    {{profile.value['firstName']}}
+
+
+    {{profile.value['lastName']}}
+
+
+    {{profile.value['gender']}}
+
+  </mat-list-item>
+</mat-list>
